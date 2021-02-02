@@ -1,0 +1,20 @@
+{
+  "name": "webhook",
+  "version": "1.0.0",
+  "description": "test exercise",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "config": "^3.3.2",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "https": "^1.0.0",
+    "nodemon": "^2.0.6"
+  },
+  "author": "EGP",
+  "license": "MIT"
+}
