@@ -54,6 +54,7 @@ describe("post data to saved URL", () => {
     let data = { payload: ["any", { valid: "JSON" }], token: "foo" };
     let array = [
       "https://enntsuvdd2l6p38.m.pipedream.net/?fbclid=IwAR28TDUpj5NpPvhrzlN13Aeykz7Iq08tRbIdXgszpS_ZCI1Yk2SSEsEe_1g",
+      "https://f377ed3adea111140dde189e3a7e4488.m.pipedream.net/",
     ];
     let result = await functions.postData(data, array);
     expect(result.status).toBe(200);
