@@ -41,3 +41,25 @@ async function hook() {
 }
 
 // hook();
+
+app.post("/api/webhooks", (req, res) => {
+  // check if verification token is correct
+  if (req.query.token !== token) {
+    return res.sendStatus(401);
+  }
+
+  // print request body
+  console.log(req.body);
+
+  // return a text response
+  const data = {
+    responses: [
+      {
+        type: "text",
+        elements: ["Hi", "Hello"],
+      },
+    ],
+  };
+
+  res.json(data);
+});
