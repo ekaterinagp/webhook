@@ -2,9 +2,10 @@
   "name": "webhook",
   "version": "1.0.0",
   "description": "test exercise",
-  "main": "main.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "start": "nodemon"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -13,7 +14,7 @@
     "config": "^3.3.2",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "https": "^1.0.0",
+    "jest": "^26.6.3",
     "nodemon": "^2.0.6"
   },
   "author": "EGP",
