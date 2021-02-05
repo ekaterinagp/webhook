@@ -5,51 +5,22 @@ beforeEach(async () => {
   functions = new Functions();
 });
 
-// describe("call API to register webhooks", () => {
-//   test("add several URL to array, message and status succsess", async () => {
-//     let data = {
-//       url:
-//         "https://enntsuvdd2l6p38.m.pipedream.net/?fbclid=IwAR28TDUpj5NpPvhrzlN13Aeykz7Iq08tRbIdXgszpS_ZCI1Yk2SSEsEe_1g",
-//       token: "foo",
-//     };
-//     let result = await functions.registerWebhook(data);
-//     let result1 = await functions.registerWebhook(data);
-//     let result2 = await functions.registerWebhook(data);
-//     expect(result.status).toBe(200);
-//     expect(result1.status).toBe(200);
-//     expect(result2.status).toBe(200);
-//     expect(result.response.message).toBe("webhook registered");
-//     expect(result.response.url).toEqual(data.url);
-//   });
+function spyConsole() {
+  let spy = {};
 
-//   test("add URL to array, token missing", async () => {
-//     let data = {
-//       url:
-//         "https://enntsuvdd2l6p38.m.pipedream.net/?fbclid=IwAR28TDUpj5NpPvhrzlN13Aeykz7Iq08tRbIdXgszpS_ZCI1Yk2SSEsEe_1g",
-//     };
-//     let result = await functions.registerWebhook(data);
-//     expect(result.status).toBe(401);
-//     expect(result.response.error).toBe("unauthorized");
-//   });
+  beforeAll(() => {
+    spy.console = jest.spyOn(console, "error").mockImplementation(() => {});
+  });
 
-//   test("add URL to array, url missing", async () => {
-//     let data = {
-//       token: "foo",
-//     };
-//     let result = await functions.registerWebhook(data);
-//     expect(result.status).toBe(400);
-//     expect(result.response.error).toBe("url is required");
-//   });
+  afterAll(() => {
+    spy.console.mockRestore();
+  });
 
-//   test("add URL to array, data is empty", async () => {
-//     let data = {};
-//     let result = await functions.registerWebhook(data);
-//     expect(result.status).toBe(401);
-//     expect(result.response.error).toBe("unathorized");
-//   });
-// });
+  return spy;
+}
 
 describe("post data to saved URL", () => {
+  let spy = spyConsole();
   test("post data to one url, status and message succsess", async () => {
     let array = [
       "https://enntsuvdd2l6p38.m.pipedream.net/?fbclid=IwAR28TDUpj5NpPvhrzlN13Aeykz7Iq08tRbIdXgszpS_ZCI1Yk2SSEsEe_1g",
@@ -68,10 +39,8 @@ describe("post data to saved URL", () => {
     ];
     let payload = ["any", { valid: "JSON" }];
     let token = "foo";
-    // let result = await functions.postData(payload, token, array);
-    // expect(result.response.error).toBe("connect ECONNREFUSED 127.0.0.1:80");
-    await expect(functions.postData(payload, token, array)).rejects.toThrow(
-      "Network Error"
-    );
+    let result = await functions.postData(payload, token, array);
+    expect(console.error).toHaveBeenCalled();
+    expect(result.response.message).toBe("data posted to url");
   });
 });

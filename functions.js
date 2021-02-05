@@ -10,6 +10,7 @@ class Functions {
         })
       );
 
+      //test reject
       // promiseArr.push(
       //   axios.post("bad url", {
       //     payload,
@@ -17,9 +18,15 @@ class Functions {
       //   })
       // );
 
-      Promise.all(promiseArr)
+      //if tasks are dependent on each other => Promise.all
+      Promise.allSettled(promiseArr)
         .then((res) => {
-          console.log("success, all done");
+          res.forEach((res) => {
+            if (res.status == "rejected") {
+              console.log(res);
+              //do something with rejected promise
+            }
+          });
           resolve({
             status: 200,
             response: { message: `data posted to url` },
