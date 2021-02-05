@@ -31,7 +31,28 @@ node script.js
 ```
 
 Script.js simulates clients' trigger. Data objects in script.js can be altered/added/removed.
-Alternatively APIs can be called/tested in Postman with a body equal to data objects from script.js.
+
+### Postman
+
+Alternatively APIs can be tested in Postman as following.
+
+POST <http://localhost:9876/api/webhooks/> with body, for example
+
+```node
+{
+"token":"foo",
+"url":"https://f377ed3adea111140dde189e3a7e4488.m.pipedream.net/"
+}
+```
+
+POST <http://localhost:9876/api/webhooks/test> with body, for example
+
+```node
+{
+"payload": ["any", { "valid": "JSON" }],
+"token":"foo"
+}
+```
 
 ## Tests
 
