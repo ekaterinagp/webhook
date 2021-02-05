@@ -56,7 +56,7 @@ POST <http://localhost:9876/api/webhooks/test> with body, for example
 
 ## Tests
 
-Tests are wriiten with the help of Jest and located in a test folder: `webhook.test.js` . Tests run by
+Tests are written with Jest and located in a test folder. Tests run by
 
 ```bash
 npm run test
@@ -70,7 +70,7 @@ Implementation of HTTP server.
 
 ### routes.js
 
-Defines two POST routes - first to register webhook and second to post data to that webhook.
+Defines two POST routes: to register webhook and to post data to registered webhooks.
 
 ### functions.js
 
