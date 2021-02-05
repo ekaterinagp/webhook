@@ -6,6 +6,7 @@ let countUrl = 0;
 let urlArray = [];
 
 router.post("/api/webhooks", async (req, res) => {
+  console.log(req.body);
   let { token, url } = req.body;
   if (!token) {
     return res.status(401).send({ error: "unauthorized" });
@@ -37,7 +38,6 @@ router.post("/api/webhooks/test", async (req, res) => {
     );
     return res.status(status).send(response.message);
   } catch (error) {
-    // console.log(error);
     return res.status(500).send(error.message);
   }
 });

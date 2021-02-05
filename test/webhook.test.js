@@ -5,7 +5,7 @@ beforeEach(async () => {
   functions = new Functions();
 });
 
-function spyConsole() {
+const spyConsole = () => {
   let spy = {};
 
   beforeAll(() => {
@@ -17,7 +17,7 @@ function spyConsole() {
   });
 
   return spy;
-}
+};
 
 describe("post data to saved URL", () => {
   let spy = spyConsole();
