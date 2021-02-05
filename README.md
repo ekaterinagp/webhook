@@ -30,7 +30,7 @@ Application controls from script.js by running
 node script.js
 ```
 
-Script.js simulates clients' trigger. Data sets in script.js can be altered/added/removed.
+Script.js simulates clients' trigger. Data objects in script.js can be altered/added/removed.
 Alternatively APIs can be called/tested in Postman with a body equal to data objects from script.js.
 
 ## Tests
