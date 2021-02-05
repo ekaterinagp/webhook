@@ -9,15 +9,6 @@ class Functions {
           token,
         })
       );
-
-      //test reject
-      // promiseArr.push(
-      //   axios.post("bad url", {
-      //     payload,
-      //     token,
-      //   })
-      // );
-
       //if tasks are dependent on each other => Promise.all
       Promise.allSettled(promiseArr)
         .then((res) => {
